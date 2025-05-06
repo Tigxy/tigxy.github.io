@@ -6,29 +6,10 @@
   <section>
     {{ .Content }}
     <ul class="work-list">
-      {{ range .Pages.ByDate.Reverse }}
-        <li class="work-item">
-          <h2>{{ .Params.title }}</h2>
-          <h3>{{ .Params.company }}</h3>
-          <p class="date">{{ .Params.start }} – {{ .Params.end }} ({{ .Params.duration }})</p>
-
-
-          <p>{{ .Params.description }}</p>
-          {{ .Content }}
-          <!-- <p class="summary">{{ .Params.summary }}</p> -->
-              
-          <!-- Display tags -->
-          {{ if .Params.tags }}
-          <p class="tags">
-            Tags: 
-            {{ range .Params.tags }}
-            <a href="{{ . }}">
-              <span class="tag">{{ . }}</span></a>
-            {{ end }}
-          </p>
-          {{ end }}
-        
-          <a class="btn" href="{{ .RelPermalink }}">More Info</a>
+      {{ range .Pages.ByParam "start_date" }}
+        <li class="work-list-item">
+          {{ partial "work-item.html" . }}
+          <!-- <a class="btn" href="{{ .RelPermalink }}">More Info</a> -->
         </li>
       {{ end }}
     </ul>

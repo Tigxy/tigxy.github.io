@@ -46,28 +46,40 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    # https://www.flaticon.com/free-icon-font/brain-circuit_8778000?page=1&position=2&term=artificial+intelligence&origin=search&related_id=8778000
+    favicon: "/brain-circuit.svg"
+    favicon16x16: "/brain-circuit.svg"
+    favicon16x16: "/brain-circuit.svg"
+    # favicon16x16: "<link / abs url>"
+    # favicon32x32: "<link / abs url>"
+    # apple_touch_icon: "<link / abs url>"
+    # safari_pinned_tab: "<link / abs url>"
     customCSS:
       - css/custom.css
+      - css/homepage-css.css
+      - css/work-css.css
+      - css/site-css.css
 
   label:
     text: "Christian Ganhör"
-    icon: /apple-touch-icon.png
+    # iconSVG: <svg ></svg>
+    # iconSVG: '{{ (resources.Get "icons/brain-circuit.svg").Content | safeHTML }}'
+    iconSVGPath: icons/brain-circuit.svg
+    # icon: /apple-touch-icon.png
     iconHeight: 35
 
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
-    title: Welcome to my webpage!
-    subtitle: "Here you can find out all about my background, projects and professional life."
+    #title: '<span class="typewriter">Hi there, welcome to my webpage!</span>'
+    title: |
+      <div class="typewriter-container">Hi there, welcome to my webpage!</div>
+      <div class="typewriter-container"><p>Explore my projects, work, and more.</p></div>
+    # subtitle: "Here you can find out all about my background, projects and professional life."
     imageUrl: "profile.png"
     imageWidth: 140
     imageHeight: 140
-    imageTitle: my image
+    # imageTitle: This is me!
     # buttons:
     #   - name: Posts
     #     url: posts

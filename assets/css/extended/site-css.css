@@ -1,0 +1,13 @@
+.site-logo {
+    width: 25px;
+    height: 25px;
+    fill: rgb(255, 255, 255);
+  }
+  
+html.dark .site-logo {
+    fill: rgb(255, 255, 255);
+}
+
+html:not(.dark) .site-logo {
+    fill: rgb(0, 0, 0);
+}

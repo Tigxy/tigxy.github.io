@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-.work-item {
+.work-list-item {
   margin-bottom: 2rem;
   margin-top: 2rem;
   /* border-left: 3px solid; */
@@ -13,6 +13,10 @@
   border-left: 4px solid #007acc;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.03); /* Light grey for light mode */
+}
+
+.work-item {
+  /* border-left: 3px solid; */
 }
 
 .work-item h2 {
@@ -36,16 +40,16 @@
 }
 
 /* Light Theme (default) */
-body.light .work-item {
+body.light .work-list-item {
   color: #333;
   border-left-color: #007acc;
 }
 
-body.light .work-item h2 {
+body.light .work-list-item h2 {
   color: #00b1be;
 }
 
-body.light .work-item h3 {
+body.light .work-list-item h3 {
   color: #666;
 }
 
@@ -54,7 +58,7 @@ body.light .work-item .date {
 }
 
 /* Dark Theme */
-body.dark .work-item {
+body.dark .work-list-item {
   color: #e3e3e3;
   border-left-color: #007acc;  
   background-color: rgba(255, 255, 255, 0.05); /* Slight white tint for dark mode */
@@ -140,3 +144,58 @@ a.btn:hover {
   color: white;
   border-color: #005fa3;
 }
+
+.work-item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-wrapper {
+  flex-shrink: 0;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--logo-bg, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  position: relative
+}
+
+.logo-wrapper img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;    /* Keeps the image filling the div nicely */
+  transition: transform 0.3s ease;
+}
+
+.logo-wrapper img:hover {
+  transform: scale(1.2); /* Slight zoom on hover */
+}
+
+.logo-wrapper:hover {
+  transition: transform 0.3s ease;
+}
+
+.job-meta h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.job-meta h3 {
+  margin: 0;
+  font-weight: normal;
+  color: #555;
+}
+
+.job-meta .date {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+
+

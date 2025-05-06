@@ -5,14 +5,11 @@ start: "2021-01-01"
 end: "2023-04-01"
 tags: ["AI", "Infrastructure"]
 description: "Worked on backend infrastructure and deployment systems."
+logo: logos/Deezer_vertical-cb-rgb.svg
 draft: false
 ---
 
-<div class="work-meta">
-  <span class="date">Jan 2021 – Apr 2023</span>
-  <span class="duration">2 yrs 4 mos</span>
-  <span class="tags">#AI, #Infrastructure</span>
-</div>
+I worked at **{{< param key="company" >}}** from **{{< param key="start" >}}** to **{{< param key="end" >}}**.
 
 <!-- <p>Worked on core backend infrastructure and scaling systems.</p> -->
 
