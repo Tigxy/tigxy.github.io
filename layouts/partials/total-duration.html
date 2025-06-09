@@ -1,0 +1,40 @@
+{{ $totalDays := 0 }}
+
+{{ range (.Pages.ByParam "end").Reverse }}
+{{ if isset .Params "start" }}
+    {{ $start := time .Params.start }}
+    {{ $end := time (or .Params.end (now.Format "2006-01-02")) }}
+    {{ $duration := sub $end.Unix $start.Unix }}
+    {{ $days := div $duration 86400 }}
+    {{ $totalDays = add $totalDays $days }}
+{{ end }}
+{{ end }}
+
+{{ $years := div $totalDays 365 }}
+{{ $months := div (mod $totalDays 365) 30 }}
+
+{{ $durationStr := "" }}                
+<!-- show year if greater zero -->
+{{ if gt $years 0 }}
+    {{ $durationStr = print $durationStr $years " year" }}
+    <!-- plural version -->
+    {{ if ne $years 1 }}
+        {{ $durationStr = print $durationStr "s" }}
+    {{ end }}
+{{ end }}
+
+<!-- comma ',' between year and month -->
+{{ if and (gt $years 0) (gt $months 0)  }}
+    {{ $durationStr = print $durationStr " and " }}
+{{ end }}
+
+<!-- show month if greater zero -->
+{{ if gt $months 0 }}
+    {{ $durationStr = print $durationStr $months " month" }}
+    <!-- plural version -->
+    {{ if ne $months 1 }}
+        {{ $durationStr = print $durationStr "s" }}
+    {{ end }}
+{{ end }}
+
+{{- return $durationStr -}}

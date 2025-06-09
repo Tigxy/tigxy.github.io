@@ -17,11 +17,11 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Portfolio
-  description: "ExampleSite description"
+  # description: "ExampleSite description"
   keywords: [Blog, Portfolio, PaperMod]
   author: Me
   # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  # images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
@@ -56,9 +56,12 @@ params:
     # safari_pinned_tab: "<link / abs url>"
     customCSS:
       - css/custom.css
-      - css/homepage-css.css
-      - css/work-css.css
-      - css/site-css.css
+      - css/homepage.css
+      - css/work.css
+      - css/site.css
+      - css/education.css
+      - css/logos.css
+      - css/timeline.css
 
   label:
     text: "Christian Ganhör"
@@ -73,12 +76,12 @@ params:
     enabled: true # needs to be explicitly set
     #title: '<span class="typewriter">Hi there, welcome to my webpage!</span>'
     title: |
-      <div class="typewriter-container">Hi there, welcome to my webpage!</div>
-      <div class="typewriter-container"><p>Explore my projects, work, and more.</p></div>
+      <div class="headline-container">Hi there, welcome to my webpage!</div>
+      <div class="subheadline-container"><p>Explore to find out about me, my projects, and more.</p></div>
     # subtitle: "Here you can find out all about my background, projects and professional life."
     imageUrl: "profile.png"
-    imageWidth: 140
-    imageHeight: 140
+    imageWidth: 180
+    imageHeight: 180
     # imageTitle: This is me!
     # buttons:
     #   - name: Posts
@@ -137,18 +140,22 @@ menu:
       name: education
       url: /education/
       weight: 2
-    - identifier: projects
-      name: projects
-      url: /projects/
+    - identifier: timeline
+      name: timeline
+      url: /timeline/
       weight: 3
-    - identifier: papers
-      name: papers
-      url: /papers/
-      weight: 4
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
+    # - identifier: projects
+    #   name: projects
+    #   url: /projects/
+    #   weight: 3
+    # - identifier: papers
+    #   name: papers
+    #   url: /papers/
+    #   weight: 4
+    # - identifier: tags
+    #   name: tags
+    #   url: /tags/
+    #   weight: 20
     # - identifier: example
     #   name: example.org
     #   url: https://example.org

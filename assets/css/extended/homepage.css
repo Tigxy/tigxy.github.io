@@ -1,0 +1,125 @@
+/* for animating the title page writing */
+.typewriter {
+    display: inline-block;
+    font-family: monospace;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid currentColor;
+    animation: typing 4s steps(35, end), blink-caret 0.75s step-end infinite;
+    font-size: 1.75rem;
+    max-width: 100%;
+    color: var(--tw-prose-body);
+    /* adjust for theme if needed */
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: currentColor
+    }
+}
+
+.headline-container {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 1.25s forwards;
+    /* after typing is done */
+}
+
+.subheadline-container {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 3.25s forwards;
+    /* after typing is done */
+    font-weight: 300;
+}
+
+.profile_inner {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 0.0s forwards;
+}
+
+.profile_inner img {
+    transition: transform 0.3s ease;
+}
+
+.profile_inner img:hover {
+    /* Slight zoom on hover */
+    transform: scale(1.2);
+}
+
+#menu .active {
+    font-weight: 500;
+}
+
+#menu .inactive {
+    position: relative;
+    text-decoration: none;
+}
+
+#menu .inactive::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1.5px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+#menu .inactive:hover::after {
+    transform: scaleX(1);
+}
+
+/* #menu .inactive { */
+    /* font-weight: 400; */
+    /* transform: scale(1.0); */
+    /* transition: font-weight 0.2s ease; */
+    /* transition: transform 0.2s ease; */
+    /* display: inline-block */
+/* } */
+
+/* #menu .inactive:hover { */
+    /* font-weight: 500; */
+    /* transform: scale(1.2); */
+    /* or 600 for a stronger effect */
+/* } */
+
+#menu {
+    background-color: transparent;
+    display: flex;
+    /* or inline-flex depending on layout */
+    flex-wrap: wrap;
+    /* allows content to wrap if needed */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    /* ensures no scrollbars */
+    width: fit-content;
+    /* allows ul to shrink/grow to fit content */
+    max-width: 100%;
+    /* prevent overflow on small screens */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

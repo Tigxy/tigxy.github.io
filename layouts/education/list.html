@@ -5,12 +5,12 @@
   </header>
   <section>
     {{ .Content }}
-    <ul class="work-list">
-      {{ range (.Pages.ByParam "start").Reverse }}
-        <li class="work-list-item">
-          <div class="work-item">
-            {{ partial "work-item-header.html" . }}
-            {{ partial "work-item-details-short.html" . }}
+    <ul class="education-list">
+      {{ range (.Pages.ByParam "end").Reverse }}
+        <li class="education-list-item">
+          <div class="education-item">
+            {{ partial "education-item-header.html" . }}
+            {{ partial "education-item-details-short.html" . }}
             <!-- {{ partial "tags.html" . }} -->
           </div>
           <!-- <a class="btn" href="{{ .RelPermalink }}">More Info</a> -->

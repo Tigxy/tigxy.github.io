@@ -1,0 +1,36 @@
+{{ define "main" }}
+<article class="post">
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  
+  {{ $totalTimeStr := partial "total-duration.html" . }}
+
+  {{ $partTimePages := where .Pages "Params.type" "==" "part" }}
+  {{ $partTimeStr := partial "total-duration.html" (dict "Pages" $partTimePages) }}
+  
+  {{ $fullTimePages := where .Pages "Params.type" "==" "full" }}
+  {{ $fullTimeStr := partial "total-duration.html" (dict "Pages" $fullTimePages) }}
+ 
+  <p>
+    {{ .Content }} 
+    In total, I have already worked 
+    <span class="timeline-tooltip">
+      <u>{{ partial "total-duration.html" . }}</u>
+      <span class="tooltip-text">
+        Full time: {{$fullTimeStr}}
+        <br>
+        Part time: {{$partTimeStr}}
+      </span>
+    </span>.
+  </p>
+
+  <section class="timeline">
+    {{ $lastLogo := "" }}
+    {{ range (.Pages.ByParam "end").Reverse }}
+      {{ partial "timeline-entry.html" (dict "Params" .Params "lastLogo" $lastLogo) }}
+      {{ $lastLogo = .Params.logo }}
+    {{ end }}
+  </section>
+</article>
+{{ end }}

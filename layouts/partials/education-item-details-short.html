@@ -1,0 +1,29 @@
+<div class="education-details">
+    {{ with .Params.summary | markdownify }}
+    <p>{{ . }}</p>
+    {{ end }}
+
+    {{ with .Params.key_points }}
+        <ul class="key-points">
+            {{ range . }}
+                {{ if reflect.IsMap . }}
+                    <li>
+                        <strong>{{ .title }}:</strong>
+                        <ul class="key-points-l2">
+                            {{ range .key_points }}
+                                <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                    </li>
+                {{ else }}
+                    <li>{{ . }}</li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    {{ end }}
+
+
+    {{ with .Params.takeaway }}
+    <p>{{ . }}</p>
+    {{ end }}
+</div>

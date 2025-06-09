@@ -1,0 +1,48 @@
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.education-list-item {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  /* border-left: 3px solid; */
+  padding: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid #8400ff;
+  border-radius: 8px;
+  background-color: rgba(172, 168, 168, 0.03); /* Light grey for light mode */
+}
+
+.education-item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.education-meta .title {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #00ff48;
+}
+
+.education-meta .company {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.education-meta .date {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #888;
+}
+
+.education-meta .location {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #e9e9e9;
+}

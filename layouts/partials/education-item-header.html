@@ -1,0 +1,47 @@
+<div class="education-item-header">
+    <a href="{{ .Params.facility_url }}" target="_blank">
+        {{ with .Params.logo }}
+        <div class="logo-wrapper">
+            <img src="{{ . | relURL }}" alt="Logo for {{ $.Params.facility }}">
+        </div>
+        {{ end }}
+    </a>
+    <div class="education-meta">
+        <h2 class="degree">{{ .Params.degree }}</h2>
+        <p class="track">{{ .Params.track }}</p>
+        <p class="facility">{{ .Params.facility }}</p>
+        <!-- {{ $t := .Params.start }} -->
+        <!-- {{ $t := .Params.start }} -->
+
+        <p class="date">
+            {{ $start := time .Params.start }}
+            {{ $end := time .Params.end }}
+            {{ if not $end }}
+            {{ $end := time.Now }}
+            {{ end }}
+
+            {{ $startYear := float ($start.Format "2006") }}
+            {{ $startMonth := float ($start.Format "01")}}
+            {{ $endYear := float ($end.Format "2006") }}
+            {{ $endMonth := float ($end.Format "01") }}
+
+            {{ $totalMonths := sub (add (mul $endYear 12) $endMonth) (add (mul $startYear 12) $startMonth) }}
+            {{ $totalMonths := int ( add $totalMonths 1) }}
+            {{ $years := div $totalMonths 12 }}
+            {{ $months := mod $totalMonths 12 }}
+
+            <!-- see https://gohugo.io/functions/time/format/ -->
+            {{ time.Format "January 2006" $start }} -
+            {{ if .Params.end }}
+            {{ time.Format "January 2006" $end }}
+            {{ else }}
+            Present
+            {{ end }}
+        </p>
+        {{ with .Params.location}}
+        <p class="location">
+            {{ . }}
+        </p>
+        {{ end }}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{{ if .Params.tags }}
+<p class="tags">
+    Tags: 
+    
+    {{ range .Params.tags }}
+        {{ $tag := . }}
+        {{ with site.GetPage (printf "/tags/%s" $tag | urlize) }}
+            <a href="{{ .RelPermalink }}"><span class="tag">{{ $tag }}</span></a>
+        {{ end }}
+    {{ end }}
+</p>          
+{{ end }}
