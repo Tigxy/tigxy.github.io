@@ -16,7 +16,7 @@
   <section class="timeline education-section">
     {{ $lastLogo := "" }}
     {{ range (.Pages.ByParam "end").Reverse }}
-      {{ partial "timeline-entry.html" (dict "Params" .Params "lastLogo" $lastLogo) }}
+      {{ partial "timeline-entry.html" (dict "Params" .Params "lastLogo" $lastLogo "File" .File) }}
       {{ $lastLogo = .Params.logo }}
     {{ end }}
   </section>

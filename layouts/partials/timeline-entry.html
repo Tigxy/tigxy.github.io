@@ -1,4 +1,4 @@
-<div class="timeline-entry">
+<div class="timeline-entry" id="{{ .File }}">
   <div class="timeline-logo-container">
     {{ warnf "%s %s" .Params.logo}}
     {{ if not (eq .lastLogo .Params.logo) }}

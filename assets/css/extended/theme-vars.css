@@ -1,0 +1,7 @@
+:root {
+    --main-width: 850px;
+}
+
+.nav #menu {
+    margin-right: 1rem;
+}
