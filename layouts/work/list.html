@@ -3,20 +3,34 @@
   <header>
     <h1>{{ .Title }}</h1>
   </header>
-  <section>
-    {{ .Content }}
-    <ul class="work-list">
-      {{ range (.Pages.ByParam "start").Reverse }}
-        <li class="work-list-item">
-          <div class="work-item">
-            {{ partial "work-item-header.html" . }}
-            {{ partial "work-item-details-short.html" . }}
-            <!-- {{ partial "tags.html" . }} -->
-          </div>
-          <!-- <a class="btn" href="{{ .RelPermalink }}">More Info</a> -->
-        </li>
-      {{ end }}
-    </ul>
+  
+  {{ $totalTimeStr := partial "total-duration.html" . }}
+
+  {{ $partTimePages := where .Pages "Params.type" "==" "part" }}
+  {{ $partTimeStr := partial "total-duration.html" (dict "Pages" $partTimePages) }}
+  
+  {{ $fullTimePages := where .Pages "Params.type" "==" "full" }}
+  {{ $fullTimeStr := partial "total-duration.html" (dict "Pages" $fullTimePages) }}
+ 
+  <p>
+    Below is a timeline of all my professional history. 
+    Until now, I have worked in total  
+    <span class="timeline-tooltip timeline-hoverable">
+      <u>{{ partial "total-duration.html" . }}</u>
+      <span class="tooltip-text">
+        Full time: {{$fullTimeStr}}
+        <br>
+        Part time: {{$partTimeStr}}
+      </span>
+    </span>.
+  </p>
+
+  <section class="timeline work-section">
+    {{ $lastLogo := "" }}
+    {{ range (.Pages.ByParam "end").Reverse }}
+      {{ partial "timeline-entry.html" (dict "Params" .Params "lastLogo" $lastLogo) }}
+      {{ $lastLogo = .Params.logo }}
+    {{ end }}
   </section>
 </article>
 {{ end }}

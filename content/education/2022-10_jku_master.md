@@ -1,7 +1,7 @@
 ---
-track: Artificial Intelligence
-degree: Master of Science
-facility: Johannes Kepler University Linz
+title: Artificial Intelligence, Master of Science
+# degree: Master of Science
+institution: Johannes Kepler University Linz
 start: 2022-10-01
 end: 2025-02-14
 location: Linz, Austria
@@ -11,7 +11,7 @@ tags: ~
   # - "Backend Development"
   # - "Cloud Computing"
 logo: logos/JKU-cropped.svg
-facility_url: https://www.jku.at/en
+institution_url: https://www.jku.at/en
 
 # text for short summary
 summary: ~

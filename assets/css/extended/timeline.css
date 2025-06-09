@@ -1,10 +1,6 @@
 .timeline {
     position: relative;
     margin-top: 1rem;
-    /* padding-left: 0px;
-  border-left: 2px solid #ddd;
-  max-width: 800px;
-  margin: auto; */
 }
 
 .timeline::before {
@@ -68,19 +64,27 @@
     transition: background-color 0.3s ease;
 }
 
+.timeline-meta {
+    margin-bottom: 0.8rem;
+}
+
+.timeline-meta .title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.timeline-meta .institution {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.timeline-meta .duration, .location {
+    font-size: 1rem;
+    font-weight: normal;
+}
 
 .timeline-content:hover {
     background-color: rgb(63, 74, 83);
-}
-
-
-.timeline-content h4 {
-    margin: 0 0 0.3rem;
-}
-
-.timeline-date {
-    color: #d1d1d1;
-    font-size: 0.9rem;
 }
 
 .timeline-content .key-points {
@@ -105,6 +109,9 @@
 .timeline-tooltip {
   position: relative;
   display: inline-block;
+}
+
+.timeline-hoverable {
   cursor: help; /* shows the question mark cursor */
 }
 

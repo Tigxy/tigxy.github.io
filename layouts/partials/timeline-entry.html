@@ -2,37 +2,39 @@
   <div class="timeline-logo-container">
     {{ warnf "%s %s" .Params.logo}}
     {{ if not (eq .lastLogo .Params.logo) }}
-    <a href="{{ .Params.company_url }}" target="_blank" rel="noopener">
-      <img src="{{ .Params.logo | relURL }}" alt="{{ .Params.company }} logo">
+    <a href="{{ .Params.institution_url }}" target="_blank" rel="noopener">
+      <img src="{{ .Params.logo | relURL }}" alt="{{ .Params.institution }} logo">
     </a>
     {{ end }}
   </div>
   <div class="timeline-content">
-    <h2>{{ .Params.title }}</h2>
-    <h3>{{ .Params.company }}</h3>
-    <span class="timeline-date">
-      {{ partial "duration_str.html" . }}, {{.Params.type}} time
-    </span>
-    <p>{{ .Params.location }}</p>
-    <p>{{ .Params.summary }}</p>
+    <div class="timeline-meta">
+      <h2 class="title">{{ .Params.title }}</h2>
+      <p class="institution">{{ .Params.institution }}</p>
+      <p class="duration">
+        {{- partial "duration_str.html" . -}}{{ with .Params.type }}, {{.}} time{{- end -}}
+      </p>
+      <p class="location">{{ .Params.location }}</p>
+    </div>
     
-      {{ with .Params.key_points }}
-        <ul class="key-points">
-            {{ range . }}
-                {{ if reflect.IsMap . }}
-                    <li>
-                        <strong>{{ .title }}:</strong>
-                        <ul class="key-points-l2">
-                            {{ range .key_points }}
-                                <li>{{ . }}</li>
-                            {{ end }}
-                        </ul>
-                    </li>
-                {{ else }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            {{ end }}
-        </ul>
+    <p>{{ .Params.summary }}</p>
+    {{ with .Params.key_points }}
+      <ul class="key-points">
+          {{ range . }}
+              {{ if reflect.IsMap . }}
+                  <li>
+                      <strong>{{ .title }}:</strong>
+                      <ul class="key-points-l2">
+                          {{ range .key_points }}
+                              <li>{{ . }}</li>
+                          {{ end }}
+                      </ul>
+                  </li>
+              {{ else }}
+                  <li>{{ . }}</li>
+              {{ end }}
+          {{ end }}
+      </ul>
     {{ end }}
 
     {{ with .Params.takeaway }}

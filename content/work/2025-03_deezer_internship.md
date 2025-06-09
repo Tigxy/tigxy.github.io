@@ -1,16 +1,17 @@
 ---
 title: "Research Intern: Multimodal Recommendation"
-company: "Deezer Research"
+institution: "Deezer Research"
 start: "2025-03-01"
 end: "2025-08-31"
 location: "Paris, France"
+type: full
 
 tags: ~
   # - "Software Engineering"
   # - "Backend Development"
   # - "Cloud Computing"
 logo: logos/Deezer_vertical-cb-rgb.svg
-company_url: https://research.deezer.com/
+institution_url: https://research.deezer.com/
 
 # text for short summary
 summary: ~

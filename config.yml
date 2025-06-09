@@ -140,10 +140,10 @@ menu:
       name: education
       url: /education/
       weight: 2
-    - identifier: timeline
-      name: timeline
-      url: /timeline/
-      weight: 3
+    # - identifier: timeline
+    #   name: timeline
+    #   url: /timeline/
+    #  weight: 3
     # - identifier: projects
     #   name: projects
     #   url: /projects/

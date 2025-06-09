@@ -1,7 +1,7 @@
 ---
-track: Artificial Intelligence
-degree: Bachelor of Science
-facility: Johannes Kepler University Linz
+title: Artificial Intelligence, Bachelor of Science
+# degree: Bachelor of Science
+institution: Johannes Kepler University Linz
 start: 2019-10-01
 end: 2022-09-30
 location: Linz, Austria
@@ -11,7 +11,7 @@ tags: ~
   # - "Backend Development"
   # - "Cloud Computing"
 logo: logos/JKU-cropped.svg
-facility_url: https://www.jku.at/en
+institution_url: https://www.jku.at/en
 
 # text for short summary
 summary: ~

@@ -1,16 +1,17 @@
 ---
 title: Student Researcher
-company: Johannes Kepler University Linz (JKU)
+institution: Johannes Kepler University Linz (JKU)
 start: 2024-10-07
 end: 2024-12-06
 location: Linz, Austria
+type: part
 
 tags: ~
   # - "Software Engineering"
   # - "Backend Development"
   # - "Cloud Computing"
 logo: logos/JKU-cropped.svg
-company_url: https://www.jku.at/en/institute-of-computational-perception/
+institution_url: https://www.jku.at/en/institute-of-computational-perception/
 
 # text for short summary
 summary: ~

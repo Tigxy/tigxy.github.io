@@ -1,16 +1,17 @@
 ---
 title: DevOps Intern
-company: Dynatrace
+institution: Dynatrace
 start: 2022-07-18
 end: 2022-08-26
 location: Linz, Austria
+type: full
 
 tags: ~
   # - "Software Engineering"
   # - "Backend Development"
   # - "Cloud Computing"
 logo: logos/Dynatrace.svg
-company_url: https://www.dynatrace.com/
+institution_url: https://www.dynatrace.com/
 
 # text for short summary
 summary: ~

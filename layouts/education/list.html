@@ -3,20 +3,22 @@
   <header>
     <h1>{{ .Title }}</h1>
   </header>
-  <section>
-    {{ .Content }}
-    <ul class="education-list">
-      {{ range (.Pages.ByParam "end").Reverse }}
-        <li class="education-list-item">
-          <div class="education-item">
-            {{ partial "education-item-header.html" . }}
-            {{ partial "education-item-details-short.html" . }}
-            <!-- {{ partial "tags.html" . }} -->
-          </div>
-          <!-- <a class="btn" href="{{ .RelPermalink }}">More Info</a> -->
-        </li>
-      {{ end }}
-    </ul>
+
+  {{ $totalTimeStr := partial "total-duration.html" . }}
+ 
+  <p>
+    Below is history of all my formal <b>engineering</b> education of
+    <span class="timeline-tooltip">
+      <u>{{ $totalTimeStr }}</u>
+    </span>.
+  </p>
+
+  <section class="timeline education-section">
+    {{ $lastLogo := "" }}
+    {{ range (.Pages.ByParam "end").Reverse }}
+      {{ partial "timeline-entry.html" (dict "Params" .Params "lastLogo" $lastLogo) }}
+      {{ $lastLogo = .Params.logo }}
+    {{ end }}
   </section>
 </article>
 {{ end }}
