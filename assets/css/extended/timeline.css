@@ -133,8 +133,8 @@
   position: absolute;
   z-index: 1000;
   top: 100%;          /* tooltip appears below the text */
-  left: 100%;         /* and to the right */
-  margin-left: 8px;   /* small gap */
+  right: 0%;         /* and to the right */
+  margin-right: 0px;   /* small gap */
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 0.9rem;
