@@ -13,17 +13,12 @@
   {{ $fullTimeStr := partial "total-duration.html" (dict "Pages" $fullTimePages) }}
  
   <p>
-    Below is a timeline of all my professional history. 
-    Until now, I have worked in total  
-    <span class="timeline-tooltip timeline-hoverable">
-      <u>{{ partial "total-duration.html" . }}</u>
-      <span class="tooltip-text">
-        Full time: {{$fullTimeStr}}
-        <br>
-        Part time: {{$partTimeStr}}
-      </span>
-    </span>.
-  </p>
+  Below is a timeline of all my professional history. Until now, I have worked in total
+  {{ partial "inline-details.html" (dict
+    "summary" $totalTimeStr
+    "details" (printf "full-time: %s | part-time: %s" $fullTimeStr $partTimeStr)
+) }}.
+</p>
 
   <section class="timeline work-section">
     {{ $lastLogo := "" }}

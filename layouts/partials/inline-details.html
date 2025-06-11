@@ -1,0 +1,10 @@
+<span class="details-wrapper" tabindex="0" role="button" aria-expanded="false"
+  onkeydown="if(event.key==='Enter' || event.key===' ') this.click()"
+  onclick="
+    this.classList.toggle('details-expanded'); 
+    const expanded = this.classList.contains('details-expanded');
+    this.setAttribute('aria-expanded', expanded);
+    const details = this.querySelector('.details-text');
+    if(details) details.style.display = expanded ? 'inline' : 'none';
+  ">
+  <span class="details-main">{{- .summary -}}</span><span class="details-main-space"></span><span class="details-text">({{- .details | markdownify -}})</span></span>
