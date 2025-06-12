@@ -1,0 +1,12 @@
+year:
+  other: "{{ .Count }} years"
+  one: "{{ .Count }} year"
+
+month:
+  other: "{{ .Count }} months"
+  one: "{{ .Count }} month"
+
+duration_and: " and "
+
+full_time: "full time"
+part_time: "part time"

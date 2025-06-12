@@ -1,10 +1,10 @@
 ---
 title: Student Researcher
 institution: Johannes Kepler University Linz (JKU)
-start: 2024-10-07
-end: 2024-12-06
+start: 2023-07-01
+end: 2024-05-31
 location: Linz, Austria
-type: part
+employmentType: part_time
 
 tags: ~
   # - "Software Engineering"
@@ -16,7 +16,8 @@ institution_url: https://www.jku.at/en/institute-of-computational-perception/
 # text for short summary
 summary: ~
 key_points: 
-  - Investigated how our previously developed single-branch recommenders perform in comparison to their multi-branch counterparts.
+  - Developed an efficient multimodal (text, image, audio, ...) recommender systems for missing modality and cold-start scenarios, 
+  - and investigated adversarial training to unlearn multiple attributes simultaneously from VAEs.
 takeaway: ~
 
 skills: 

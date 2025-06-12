@@ -1,0 +1,10 @@
+{{ $days := 0 }}
+{{ if isset .Params "start" }}
+    {{ $start := time .Params.start }}
+    {{ $end := time (or .Params.end (now.Format "2006-01-02")) }}
+    {{ $duration := sub $end.Unix $start.Unix }}
+    {{ $days = div $duration 86400 }}
+{{ end }}
+
+{{ warnf "%d" $days }}
+{{- return $days -}}

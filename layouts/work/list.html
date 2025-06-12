@@ -4,21 +4,33 @@
     <h1>{{ .Title }}</h1>
   </header>
   
-  {{ $totalTimeStr := partial "total-duration.html" . }}
-
-  {{ $partTimePages := where .Pages "Params.type" "==" "part" }}
-  {{ $partTimeStr := partial "total-duration.html" (dict "Pages" $partTimePages) }}
-  
-  {{ $fullTimePages := where .Pages "Params.type" "==" "full" }}
-  {{ $fullTimeStr := partial "total-duration.html" (dict "Pages" $fullTimePages) }}
+  {{ $partTimePages := where .Pages "Params.employmentType" "==" "part_time" }}
+  {{ $fullTimePages := where .Pages "Params.employmentType" "==" "full_time" }}
  
+  {{ $totalDuration := partial "computations/total-duration.html" (dict "Pages" .Pages "AsLongText" true) }}
+  {{ $partTimeDuration := partial "computations/total-duration.html" (dict "Pages" $partTimePages "AsLongText" false) }}
+  {{ $fullTimeDuration := partial "computations/total-duration.html" (dict "Pages" $fullTimePages "AsLongText" false) }}
+
+
+  {{- $parts := slice -}}
+  {{- if ne $fullTimeDuration "" -}}
+  {{- $parts = $parts | append (printf "%s: %s" (i18n "full_time") $fullTimeDuration ) -}}
+  {{- end -}}
+
+  {{- if ne $partTimeDuration "" -}}
+  {{- $parts = $parts | append (printf "%s: %s" (i18n "part_time") $partTimeDuration ) -}}
+  {{- end -}}
+
+  {{- $detailsStr := delimit $parts " | " -}}
+
+  {{ $detailsElement := partial "inline-details.html" (dict
+    "summary" $totalDuration
+    "details" $detailsStr
+  )}}
+
   <p>
-  Below is a timeline of all my professional history. Until now, I have worked in total
-  {{ partial "inline-details.html" (dict
-    "summary" $totalTimeStr
-    "details" (printf "full-time: %s | part-time: %s" $fullTimeStr $partTimeStr)
-) }}.
-</p>
+    {{ printf .Params.Summary $detailsElement | safeHTML }}
+  </p>
 
   <section class="timeline work-section">
     {{ $lastLogo := "" }}

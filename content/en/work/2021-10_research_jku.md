@@ -1,10 +1,10 @@
 ---
 title: Student Researcher
 institution: Johannes Kepler University Linz (JKU)
-start: 2021-07-01
-end: 2021-09-30
+start: 2021-10-01
+end: 2022-06-30
 location: Linz, Austria
-type: full
+employmentType: part_time
 
 tags: ~
   # - "Software Engineering"
@@ -16,15 +16,9 @@ institution_url: https://www.jku.at/en/institute-of-computational-perception/
 # text for short summary
 summary: ~
 key_points: 
-  - title: Academic Research
-    key_points: 
-    - Explored and developed methods for debiasing recommender systems
-  - title: Music Tower Blocks (EmoMTB) | JKU LIT @ Ars Electronica
-    key_points: 
-    - Designed, implemented and improved EmoMTB, our large-scale music exploration interface
-    - Implemented controller interface for mobile phones
-    - Handled communication between controller and exploration interface
-    - Presented our interface during the festival
+  - Utilized adversarial training to improve user-side fairness in recommender systems, 
+  - researched on how to describe users and items in terms of prototypes, 
+  - and built EmoMTB, a music exploration interface.
 takeaway: ~
 
 skills: 

@@ -12,7 +12,10 @@
       <h2 class="title">{{ .Params.title }}</h2>
       <p class="institution">{{ .Params.institution }}</p>
       <p class="duration">
-        {{- partial "duration_str.html" . -}}{{ with .Params.type }}, {{.}} time{{- end -}}
+        {{- $timeSpanStr := partial "formatting/format-timespan" . -}}
+        {{- $duration := partial "computations/page-duration" . -}}
+        {{- $durationStr := partial "formatting/format-duration.html" (dict "Days" $duration) -}}
+        {{- $timeSpanStr -}}({{- $durationStr -}}), {{i18n .Params.employmentType}}
       </p>
       <p class="location">{{ .Params.location }}</p>
     </div>

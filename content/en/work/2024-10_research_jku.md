@@ -1,10 +1,10 @@
 ---
 title: Student Researcher
 institution: Johannes Kepler University Linz (JKU)
-start: 2021-10-01
-end: 2022-06-30
+start: 2024-10-07
+end: 2024-12-06
 location: Linz, Austria
-type: part
+employmentType: part_time
 
 tags: ~
   # - "Software Engineering"
@@ -16,17 +16,15 @@ institution_url: https://www.jku.at/en/institute-of-computational-perception/
 # text for short summary
 summary: ~
 key_points: 
-  - Utilized adversarial training to improve user-side fairness in recommender systems, 
-  - researched on how to describe users and items in terms of prototypes, 
-  - and built EmoMTB, a music exploration interface.
+  - Investigated how our previously developed single-branch recommenders perform in comparison to their multi-branch counterparts.
 takeaway: ~
 
 skills: 
   - Artificial Intelligence (AI)
+  - Engineering
   - Python (Programming Language)
   - PyTorch
-  - Deep Learning
-  - Recommender Systems
+  - Data Analysis
   - Academic Research
-  - Data Visualization
+  - Recommender Systems
 ---

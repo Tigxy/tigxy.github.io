@@ -1,0 +1,16 @@
+{{ $years := div .Days 365 }}
+{{ $monthsFloat := div (float (mod .Days 365)) 30 }}
+{{ $months := math.Round $monthsFloat }}
+
+{{- $parts := slice -}}
+
+{{- if gt $years 0 -}}
+{{- $parts = $parts | append (i18n "year" (dict "Count" $years)) -}}
+{{- end -}}
+
+{{- if gt $months 0 -}}
+{{- $parts = $parts | append (i18n "month" (dict "Count" $months)) -}}
+{{- end -}}
+
+{{- $separator :=  cond .AsLongText (i18n "duration_and") ", " -}}
+{{- return delimit $parts $separator -}}
