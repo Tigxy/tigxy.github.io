@@ -4,12 +4,12 @@
     <h1>{{ .Title }}</h1>
   </header>
 
-  {{ $totalTimeStr := partial "total-duration.html" . }}
+  {{ $totalDuration := partial "computations/total-duration.html" (dict "Pages" .Pages "AsLongText" true) }}
  
   <p>
     Below is history of all my formal <b>engineering</b> education of
     <span class="timeline-tooltip">
-      <u>{{ $totalTimeStr }}</u>
+      <u>{{ $totalDuration }}</u>
     </span>.
   </p>
 

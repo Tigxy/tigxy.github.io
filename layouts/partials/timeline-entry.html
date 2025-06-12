@@ -15,7 +15,7 @@
         {{- $timeSpanStr := partial "formatting/format-timespan" . -}}
         {{- $duration := partial "computations/page-duration" . -}}
         {{- $durationStr := partial "formatting/format-duration.html" (dict "Days" $duration) -}}
-        {{- $timeSpanStr -}}({{- $durationStr -}}), {{i18n .Params.employmentType}}
+        {{- $timeSpanStr -}}({{- $durationStr -}}){{- with .Params.employmentType -}}, {{- i18n . -}} {{- end -}}
       </p>
       <p class="location">{{ .Params.location }}</p>
     </div>
