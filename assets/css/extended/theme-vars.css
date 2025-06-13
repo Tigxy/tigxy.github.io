@@ -1,5 +1,16 @@
 :root {
     --main-width: 850px;
+    --logo-background: rgb(255, 255, 255);
+    --logo-border: rgb(55, 56, 62);
+
+    /* https://flatuicolors.com/palette/in */
+    --work-header: #6c5ce7;
+    --education-header: #6c5ce7;
+}
+
+.dark {
+    --work-header: #a29bfe;
+    --education-header: #a29bfe;
 }
 
 .nav #menu {

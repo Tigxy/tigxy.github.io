@@ -87,20 +87,6 @@
     transform: scaleX(1);
 }
 
-/* #menu .inactive { */
-    /* font-weight: 400; */
-    /* transform: scale(1.0); */
-    /* transition: font-weight 0.2s ease; */
-    /* transition: transform 0.2s ease; */
-    /* display: inline-block */
-/* } */
-
-/* #menu .inactive:hover { */
-    /* font-weight: 500; */
-    /* transform: scale(1.2); */
-    /* or 600 for a stronger effect */
-/* } */
-
 #menu {
     background-color: transparent;
     display: flex;
