@@ -1,23 +1,23 @@
-  .details-wrapper {
-    user-select: none;
-    font-size: 1em;
-  }
-  .details-main {
-    font-weight: normal;
-    text-decoration: underline dotted;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 2px;
-    cursor: pointer;
-  }
-  .details-text {
-    display: none;
-    font-style: italic;
-    color: var(--secondary);
-    margin-left: 2px;
+.details-wrapper {
+  user-select: auto;
+  font-size: 1em;
+}
+.details-main {
+  font-weight: normal;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.details-text {
+  display: none;
+  font-style: italic;
+  color: var(--secondary);
+  margin-left: 2px;
 }
 .details-expanded .details-text {
-    display: inline;
-    margin-left: 0px;
+  display: inline;
+  margin-left: 0px;
 }
 .details-expanded .details-main-space {
   text-decoration: none;
