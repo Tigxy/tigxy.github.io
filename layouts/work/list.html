@@ -4,8 +4,8 @@
     <h1>{{ .Title }}</h1>
   </header>
   
-  {{ $partTimePages := where .Pages "Params.employmentType" "==" "part_time" }}
-  {{ $fullTimePages := where .Pages "Params.employmentType" "==" "full_time" }}
+  {{ $partTimePages := where .Pages "Params.employment_type" "==" "part_time" }}
+  {{ $fullTimePages := where .Pages "Params.employment_type" "==" "full_time" }}
  
   {{ $totalDuration := partial "computations/total-duration.html" (dict "Pages" .Pages "AsLongText" true) }}
   {{ $partTimeDuration := partial "computations/total-duration.html" (dict "Pages" $partTimePages "AsLongText" false) }}

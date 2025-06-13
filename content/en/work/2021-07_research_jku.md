@@ -4,7 +4,7 @@ institution: Johannes Kepler University Linz (JKU)
 start: 2021-07-01
 end: 2021-09-30
 location: Linz, Austria
-employmentType: full_time
+employment_type: full_time
 
 tags: ~
   # - "Software Engineering"

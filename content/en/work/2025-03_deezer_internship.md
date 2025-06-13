@@ -4,7 +4,7 @@ institution: "Deezer Research"
 start: "2025-03-01"
 end: "2025-08-31"
 location: "Paris, France"
-employmentType: full_time
+employment_type: full_time
 
 tags: ~
   # - "Software Engineering"

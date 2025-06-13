@@ -4,7 +4,7 @@ institution: Austrian Armed Forces
 start: 2017-07-10
 end: 2018-01-09
 location: Hörsching, Austria
-employmentType: full_time
+employment_type: full_time
 
 tags: ~
   # - "Software Engineering"

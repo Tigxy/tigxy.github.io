@@ -4,7 +4,7 @@ institution: Dynatrace
 start: 2022-07-11
 end: 2022-08-26
 location: Linz, Austria
-employmentType: full_time
+employment_type: full_time
 
 tags: ~
   # - "Software Engineering"
