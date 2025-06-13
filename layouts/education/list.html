@@ -3,14 +3,34 @@
   <header>
     <h1>{{ .Title }}</h1>
   </header>
-
-  {{ $totalDuration := partial "computations/total-duration.html" (dict "Pages" .Pages "AsLongText" true) }}
+  
+  {{ $universityPages := where .Pages "Params.education_type" "==" "university" }}
+  {{ $engineeringSchoolPages := where .Pages "Params.education_type" "==" "engineering_school" }}
  
+  {{ $totalDuration := partial "computations/total-duration.html" (dict "Pages" .Pages "AsLongText" true) }}
+  {{ $universityDuration := partial "computations/total-duration.html" (dict "Pages" $universityPages "AsLongText" false) }}
+  {{ $engineeringSchoolDuration := partial "computations/total-duration.html" (dict "Pages" $engineeringSchoolPages "AsLongText" false) }}
+
+
+  {{- $parts := slice -}}
+  {{- if ne $universityDuration "" -}}
+  {{- $parts = $parts | append (printf "%s: %s" (i18n "university") $universityDuration ) -}}
+  {{- end -}}
+  
+  {{- if ne $engineeringSchoolDuration "" -}}
+  {{- $parts = $parts | append (printf "%s: %s" (i18n "engineering_school") $engineeringSchoolDuration ) -}}
+  {{- end -}}
+
+
+  {{- $detailsStr := delimit $parts " | " -}}
+
+  {{ $detailsElement := partial "inline-details.html" (dict
+    "summary" $totalDuration
+    "details" $detailsStr
+  )}}
+
   <p>
-    Below is history of all my formal <b>engineering</b> education of
-    <span class="timeline-tooltip">
-      <u>{{ $totalDuration }}</u>
-    </span>.
+    {{ printf .Params.Summary $detailsElement | safeHTML }}
   </p>
 
   <section class="timeline education-section">

@@ -5,6 +5,7 @@ institution: Johannes Kepler University Linz
 start: 2019-10-01
 end: 2022-09-30
 location: Linz, Austria
+education_type: university
 
 tags: ~
   # - "Software Engineering"
