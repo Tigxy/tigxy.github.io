@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="publications">
+  <h1>{{ .Title }}</h1>
+
+  {{ $grouped := .Pages.GroupByParam "year" }}
+  {{ range sort $grouped "Key" "desc" }}
+    <div class="publication-group">
+      <h2 class="publication-year">{{ .Key }}</h2>
+      {{ range .Pages.ByParam "title" }}
+        <div class="publication-entry">
+          <a class="publication-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <div class="publication-meta">
+            {{ partial "render-authors.html" .Params.authors }}
+            <br/>
+            {{ with .Params.journal_short }} {{ . }} {{ end }}
+          </div>
+          {{ with .Params.abstract }}
+          <div class="abstract-toggle">
+            <span class="abstract-preview">{{ . | truncate 280 }}</span>
+            <span class="abstract-full hidden">{{ . }}</span>
+            <button class="abstract-toggle-btn" data-more="[{{ i18n "show_more" }}]" data-less="[{{ i18n "show_less" }}]">
+              [{{ i18n "show_more" }}]
+            </button>
+          </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
+{{ end }}

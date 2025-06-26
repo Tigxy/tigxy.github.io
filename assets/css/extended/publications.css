@@ -1,0 +1,136 @@
+.publications {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.publication-year {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--secondary);
+  padding-bottom: 0.25rem;
+  color: var(--secondary);
+}
+
+.publication-entry {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 4px solid var(--secondary);
+  background-color: var(--code-bg);
+  border-radius: 6px;
+}
+
+.publication-entry .publication-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--publication-color);
+  text-decoration: none;
+}
+
+.publication-entry .publication-title:hover {
+  text-decoration: underline;
+}
+
+.publication-meta {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.publication-abstract {
+  margin-top: 0.5rem;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.publication-abstract-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.publication-abstract-full {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.publication-links p a {
+  color: var(--publication-color);
+  text-decoration: underline;
+}
+
+.publication-image {
+  margin: 1rem 0;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.publication-citation,
+.publication-bibtex {
+  margin-top: 2rem;
+  background-color: var(--code-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+}
+.publication-bibtex pre {
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.abstract-toggle {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--primary);
+  display: inline-block;
+  text-align: justify;
+}
+
+.abstract-toggle .hidden {
+  display: none;
+}
+
+.abstract-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--publication-color);
+  cursor: pointer;
+  font-weight: 500;
+  padding-left: 0;
+  margin-top: 0.2rem;
+}
+
+.author-name {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.author-link {
+  /* color: #007acc; */
+  text-decoration: none;
+  transition: color 0.2s;
+
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--secondary)
+}
+
+.author-link:hover {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--primary)
+}
+
+.author-plain {
+  /* ... */
+}
+
+.author-me {
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration-style: none;
+}

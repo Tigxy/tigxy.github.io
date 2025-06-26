@@ -1,0 +1,24 @@
+{{- $authors := . -}}
+{{- $authorData := site.Data.authors -}}
+
+{{- $rendered := slice -}}
+{{- range $authors }}
+  {{- $a := index $authorData . -}}
+  {{- $name := cond $a (default . $a.name) . -}}
+  {{- $url := cond $a $a.url "" -}}
+  {{- $isMe := cond $a $a.me false -}}
+
+  {{- $classes := slice "author-name" -}}
+  {{- if $isMe }}{{ $classes = $classes | append "author-me" }}{{ end }}
+  {{- if $url }}{{ $classes = $classes | append "author-link" }}{{ else }}{{ $classes = $classes | append "author-plain" }}{{ end }}
+
+  {{- $classAttr := printf "class=\"%s\"" (delimit $classes " ") -}}
+
+  {{- if $url }}
+    {{- $rendered = $rendered | append (printf "<a href=\"%s\" %s>%s</a>" $url $classAttr $name) -}}
+  {{- else }}
+    {{- $rendered = $rendered | append (printf "<span %s>%s</span>" $classAttr $name) -}}
+  {{- end }}
+{{- end }}
+
+{{ delimit $rendered ", " | safeHTML }}

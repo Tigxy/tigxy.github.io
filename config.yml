@@ -60,6 +60,7 @@ params:
       - css/education.css
       - css/logos.css
       - css/timeline.css
+      - css/publication.css
 
   label:
     text: "Christian Ganhör"
@@ -138,10 +139,10 @@ menu:
       name: education
       url: /education/
       weight: 2
-    # - identifier: timeline
-    #   name: timeline
-    #   url: /timeline/
-    #  weight: 3
+    - identifier: publications
+      name: publications
+      url: /publications/
+      weight: 3
     # - identifier: projects
     #   name: projects
     #   url: /projects/

@@ -1,0 +1,19 @@
+<div class="publication-citation">
+  <strong>Citation</strong><br>
+  {{ delimit .Params.authors ", " }}<br>
+  {{ .Params.title }}<br>
+
+  {{- if eq .Params.bibentry "inproceedings" -}}
+    {{ .Params.bib.booktitle }}
+    {{ with .Params.bibs }}, {{ . }}{{ end }}
+    {{ with .Params.bib.doi }}, doi:{{ . }}{{ end }},
+    {{ .Params.year }}.
+  {{- else if eq .Params.bibentry "article" -}}
+    {{ .Params.bib.booktitle }}
+    {{ with .Params.bibs }}, {{ . }}{{ end }}
+    {{ with .Params.bib.doi }}, doi:{{ . }}{{ end }},
+    {{ .Params.year }}.
+  {{- else -}}
+    {{ .Params.year }}.
+  {{- end }}
+</div>

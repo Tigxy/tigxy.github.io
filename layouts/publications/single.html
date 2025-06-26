@@ -1,0 +1,46 @@
+{{ define "main" }}
+<article class="publication">
+  <h1 class="text-2xl font-bold">{{ .Title }}</h1>
+  {{ warnf .Title }}
+  <p class="publication-meta">
+    {{ with .Params.authors }}{{ delimit . ", " }} · {{ end }}
+    {{ .Params.journal_short }} {{ .Params.year }}
+  </p>
+
+  {{ with .Params.image }}
+    <img src="/assets/images/papers/{{ . }}" alt="{{ $.Title }}" class="publication-image">
+  {{ end }}
+
+  {{ with .Params.abstract }}
+    <h2 class="publication-abstract-title">Abstract</h2>
+    <p class="publication-abstract-full">{{ . }}</p>
+  {{ end }}
+
+  <div class="publication-links">
+    {{ with .Params.publisherurl }}
+      <p><a href="{{ . }}" target="_blank">Publisher Page</a></p>
+    {{ end }}
+    {{ with .Params.preprint }}
+      <p><a href="{{ . }}" target="_blank">Preprint (arXiv)</a></p>
+    {{ end }}
+    {{ with .Params.github }}
+      <p><a href="{{ . }}" target="_blank">Code Repository</a></p>
+    {{ end }}
+    {{ with .Params.code }}
+      <p><a href="{{ . }}" target="_blank">Code Repository</a></p>
+    {{ end }}
+    {{ range .Params.supplements }}
+      <p><a href="{{ .abslink }}" target="_blank">{{ .name }}</a></p>
+    {{ end }}
+  </div>
+
+  {{ .Content }} <!-- Extra markdown -->
+
+  <h2>Citation</h2>
+  {{ partial "citation.html" }}
+  
+  <h2>BibTeX</h2>
+  {{ partial "bibtex.html" }}
+
+</article>
+{{ end }}
