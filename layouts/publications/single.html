@@ -1,0 +1,44 @@
+{{ define "main" }}
+<article class="publications">
+  
+  <h1>{{- .Params.title -}}</h1>
+
+  {{ if .Params.image }}
+    <!-- file path to use for loading the image -->
+    {{ $fileName := (.Params.image ) | relURL }}
+    <!-- file path for file on disk (to check for issues) -->
+    {{ $serverFilePath := (urls.JoinPath "static" $fileName) | relURL }}
+
+    {{- if not (fileExists $serverFilePath) -}}
+      {{- warnf "Image does not exist: %s (in %s)" $fileName . -}}
+    {{- else -}}
+      <img src="{{ $fileName }}" alt="[image: {{ $.Title }}]" class="publication-image">
+    {{- end -}}
+  {{ end }}
+
+  {{ with .Params.abstract }}
+    <h2>Abstract</h2>
+    <p class="abstract">{{ . }}</p>
+  {{ end }}
+
+  {{- with .Params.links -}}
+  <div class="publication-links">
+    <h2>Ressources</h2>
+   {{ range $key, $link := . }}
+    {{- if $link -}}
+      {{- $buttonName := i18n $key -}}
+      <a href="{{ $link }}" target="_blank">
+        <div class="link-button">
+          {{ $buttonName }}
+        </div>
+      </a>
+    {{- end -}}
+   {{ end }}
+    </div>
+  {{- end -}}
+
+  <h2>Citation</h2>
+  {{- partial "citation.html" . -}}
+  
+</article>
+{{ end }}

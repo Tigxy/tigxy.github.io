@@ -1,0 +1,25 @@
+<div class="publication-citation">
+  {{- partial "render-authors.html" .Params.authors -}}.
+  {{- printf " %d." .Params.year -}}
+  <span>{{- printf " %s." .Params.title -}}</span>
+  {{- partial "render-conference.html" . -}}.
+
+  {{- $publishingParts := slice -}}
+  {{- $publisher := partial "render-publisher.html" . -}}
+  {{- $publishingParts = $publishingParts | append $publisher -}}
+
+  {{- with .Params.bib.pages -}}
+  {{- $publishingParts = $publishingParts | append . -}}
+  {{- end -}}
+
+  {{- $s := delimit $publishingParts ", " -}}
+  {{- if ge (len $s) 1 -}}
+    {{- printf " %s." $s -}}
+  {{- end -}}
+
+  {{- if .Params.bib.doi -}}
+    {{- if .Params.bib.url -}}
+      {{- printf " %s" .Params.bib.url -}} 
+    {{- end -}}
+  {{- end -}}
+</div>

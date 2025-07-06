@@ -141,6 +141,21 @@
             codeblock.parentNode.appendChild(copybutton);
         }
     });
-</script>
-  
+</script>  
 {{- end }}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.abstract-toggle').forEach(function (block) {
+    const preview = block.querySelector('.abstract-preview');
+    const full = block.querySelector('.abstract-full');
+    const button = block.querySelector('.abstract-toggle-btn');
+
+    button.addEventListener('click', function () {
+      const isHidden = full.classList.toggle('hidden');
+      preview.classList.toggle('hidden');
+      button.textContent = isHidden ? button.dataset.more : button.dataset.less;
+    });
+  });
+});
+</script>

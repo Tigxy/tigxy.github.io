@@ -1,6 +1,5 @@
 <div class="timeline-entry" id="{{ .File }}">
   <div class="timeline-logo-container">
-    {{ warnf "%s %s" .Params.logo}}
     {{ if not (eq .lastLogo .Params.logo) }}
     <a href="{{ .Params.institution_url }}" target="_blank" rel="noopener">
       <img src="{{ .Params.logo | relURL }}" alt="{{ .Params.institution }} logo">

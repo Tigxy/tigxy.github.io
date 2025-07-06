@@ -132,7 +132,6 @@
         {{- $currentPage := . }}
         <ul id="menu">
             {{- range site.Menus.main }}
-            {{ warnf "ignore this -- %s" .URL }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}

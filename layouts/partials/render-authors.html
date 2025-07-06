@@ -1,0 +1,44 @@
+{{- $authors := . -}}
+{{- $authorData := site.Data.authors -}}
+
+{{- $rendered := slice -}}
+{{- range $authors }}
+
+    {{- $authorKey := . -}}
+    {{- $suffix := "" -}}
+    {{ if reflect.IsMap $authorKey }}
+        {{- $authorKey = .name -}}
+        {{- $suffix = .suffix -}}
+    {{ end }}
+
+  {{- $a := index $authorData $authorKey -}}
+  {{- if not $a -}}
+  {{- warnf "No author data found for author '%s'" $authorKey -}}
+  {{- end -}}
+  {{- $name := cond $a (default $authorKey $a.name) $authorKey -}}
+  {{- $url := cond $a $a.url "" -}}
+  {{- $isMe := cond $a $a.me false -}}
+
+  {{- $classes := slice "author-name" -}}
+  {{- if $isMe }}{{ $classes = $classes | append "author-me" }}{{ end }}
+  {{- if $url }}{{ $classes = $classes | append "author-link" }}{{ else }}{{ $classes = $classes | append "author-plain" }}{{ end }}
+
+  {{- $classAttr := printf "class=\"%s\"" (delimit $classes " ") -}}
+
+  {{- if $url }}
+    {{- $rendered = $rendered | append (printf "<a href=\"%s\" %s>%s</a>%s" $url $classAttr $name $suffix) -}}
+  {{- else }}
+    {{- $rendered = $rendered | append (printf "<span %s>%s</span>%s" $classAttr $name $suffix) -}}
+  {{- end }}
+{{- end }}
+
+{{- $numAuthors := len $rendered -}}
+{{- $firstAuthors := first (sub $numAuthors 1) $rendered -}}
+
+{{- $authorStr := slice -}}
+{{- if ge $numAuthors 2 -}}
+  {{- $authorStr = $authorStr | append (delimit $firstAuthors ", ") -}}
+{{- end -}}
+
+{{- $authorStr = $authorStr | append (index $rendered (sub $numAuthors 1)) -}}
+{{- delimit $authorStr ", and " | safeHTML -}}

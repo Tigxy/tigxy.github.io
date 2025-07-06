@@ -1,0 +1,48 @@
+---
+title: "Emotion-aware Music Tower Blocks (EmoMTB): An Intelligent Audiovisual Interface for Music Discovery and Recommendation"
+
+abstract: "Music listening has experienced a sharp increase during the last decade thanks to music streaming and recommendation services. While they offer text-based search functionality and provide recommendation lists of remarkable utility, their typical mode of interaction is unidimensional, i.e., they provide lists of consecutive tracks, which are commonly inspected in sequential order by the user. The user experience with such systems is heavily affected by cognition biases (e.g., position bias, human tendency to pay more attention to first positions of ordered lists) as well as algorithmic biases (e.g., popularity bias, the tendency of recommender systems to overrepresent popular items). This may cause dissatisfaction among the users by disabling them to find novel music to enjoy. In light of such systems and biases, we propose an intelligent audiovisual music exploration system named EmoMTB. It allows the user to browse the entirety of a given collection in a free non-linear fashion. The navigation is assisted by a set of personalized emotion-aware recommendations which serve as starting points for the exploration experience. EmoMTB adopts the metaphor of a city, in which each track (visualized as a colored cube) represents one floor of a building. Highly similar tracks are located in the same building, moderately similar ones form neighborhoods that mostly correspond to genres. Tracks situated between distinct neighborhoods create a gradual transition between genres. Users can navigate this music city using their smartphones as control devices. They can explore districts of well-known music or decide to leave their comfort zone. In addition, EmoMTB integrates an emotion-aware music recommendation system that re-ranks the list of suggested starting points for exploration according to the user’s self-identified emotion or the collective emotion expressed in EmoMTB’s Twitter channel. Evaluation of EmoMTB has been carried out in a three-fold way: by quantifying the homogeneity of the clustering underlying the construction of the city, by measuring the accuracy of the emotion predictor, and by carrying out a web-based survey composed of open questions to obtain qualitative feedback from users."
+
+shortname: IJMIR_EMOMTB
+image: assets/images/papers/2022_icmr_emomtb.png
+authors:
+- melchiorre
+- penz
+- ganhoer
+- lesota
+- fragoso
+- friztl
+- parada-cabaleiro
+- schubert
+- schedl
+
+journal_short: IJMIR
+year: 2023
+month: 06
+
+bibentry: article
+bib:
+  journal: International Journal of Multimedia Information Retrieval (IJMIR)
+  booktitle:
+  editor: 
+  publisher: 
+  address: 
+  doi: 10.1007/s13735-023-00275-8
+  url: https://doi.org/10.1007/s13735-023-00275-8
+  volume: 12
+  number: 13
+  pages: 
+  month: 
+  location: 
+
+links:
+  preprint: 
+  publisher: https://link.springer.com/article/10.1007/s13735-023-00275-8
+  youtube: 
+  pdf: 
+  blog: 
+  code:
+  external-webpage: https://hcai.at/publications/2023_IJMIR_EmoMTB/
+
+---
+
