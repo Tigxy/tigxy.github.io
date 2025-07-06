@@ -21,7 +21,6 @@
   {{- $parts = $parts | append (printf "%s: %s" (i18n "engineering_school") $engineeringSchoolDuration ) -}}
   {{- end -}}
 
-
   {{- $detailsStr := delimit $parts " | " -}}
 
   {{ $detailsElement := partial "inline-details.html" (dict

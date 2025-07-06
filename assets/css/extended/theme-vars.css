@@ -7,6 +7,9 @@
     --work-header: #6c5ce7;
     --education-header: #6c5ce7;
     --publication-color: #6c5ce7;
+    --link: #6c5ce7;
+    --link-hover: #5743e8;
+    --link-font: #ffffff;
 }
 
 .dark {

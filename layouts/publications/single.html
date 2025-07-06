@@ -1,46 +1,44 @@
 {{ define "main" }}
-<article class="publication">
-  <h1 class="text-2xl font-bold">{{ .Title }}</h1>
-  {{ warnf .Title }}
-  <p class="publication-meta">
-    {{ with .Params.authors }}{{ delimit . ", " }} · {{ end }}
-    {{ .Params.journal_short }} {{ .Params.year }}
-  </p>
+<article class="publications">
+  
+  <h1>{{- .Params.title -}}</h1>
 
-  {{ with .Params.image }}
-    <img src="/assets/images/papers/{{ . }}" alt="{{ $.Title }}" class="publication-image">
+  {{ if .Params.image }}
+    <!-- file path to use for loading the image -->
+    {{ $fileName := (.Params.image ) | relURL }}
+    <!-- file path for file on disk (to check for issues) -->
+    {{ $serverFilePath := (urls.JoinPath "static" $fileName) | relURL }}
+
+    {{- if not (fileExists $serverFilePath) -}}
+      {{- warnf "Image does not exist: %s (in %s)" $fileName . -}}
+    {{- else -}}
+      <img src="{{ $fileName }}" alt="[image: {{ $.Title }}]" class="publication-image">
+    {{- end -}}
   {{ end }}
 
   {{ with .Params.abstract }}
-    <h2 class="publication-abstract-title">Abstract</h2>
-    <p class="publication-abstract-full">{{ . }}</p>
+    <h2>Abstract</h2>
+    <p class="abstract">{{ . }}</p>
   {{ end }}
 
+  {{- with .Params.links -}}
   <div class="publication-links">
-    {{ with .Params.publisherurl }}
-      <p><a href="{{ . }}" target="_blank">Publisher Page</a></p>
-    {{ end }}
-    {{ with .Params.preprint }}
-      <p><a href="{{ . }}" target="_blank">Preprint (arXiv)</a></p>
-    {{ end }}
-    {{ with .Params.github }}
-      <p><a href="{{ . }}" target="_blank">Code Repository</a></p>
-    {{ end }}
-    {{ with .Params.code }}
-      <p><a href="{{ . }}" target="_blank">Code Repository</a></p>
-    {{ end }}
-    {{ range .Params.supplements }}
-      <p><a href="{{ .abslink }}" target="_blank">{{ .name }}</a></p>
-    {{ end }}
-  </div>
-
-  {{ .Content }} <!-- Extra markdown -->
+    <h2>Ressources</h2>
+   {{ range $key, $link := . }}
+    {{- if $link -}}
+      {{- $buttonName := i18n $key -}}
+      <a href="{{ $link }}" target="_blank">
+        <div class="link-button">
+          {{ $buttonName }}
+        </div>
+      </a>
+    {{- end -}}
+   {{ end }}
+    </div>
+  {{- end -}}
 
   <h2>Citation</h2>
-  {{ partial "citation.html" }}
+  {{- partial "citation.html" . -}}
   
-  <h2>BibTeX</h2>
-  {{ partial "bibtex.html" }}
-
 </article>
 {{ end }}

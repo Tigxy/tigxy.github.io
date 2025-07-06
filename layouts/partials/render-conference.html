@@ -1,0 +1,10 @@
+{{- $parts := slice -}}
+{{ if .Params.bib.journal }}
+{{ $parts = $parts | append .Params.bib.journal }}
+{{ else if .Params.bib.booktitle }}
+{{ $parts = $parts | append .Params.bib.booktitle }}
+{{ else if .Params.bib.school }}
+{{ $parts = $parts | append .Params.bib.school }}
+{{ end }}
+
+{{- printf "%s" (delimit $parts ", ") -}}

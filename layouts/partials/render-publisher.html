@@ -1,0 +1,10 @@
+{{- $parts := slice -}}
+{{- if .Params.bib.publisher -}}
+{{- $parts = $parts | append .Params.bib.publisher -}}
+{{- end -}}
+
+{{- if .Params.bib.address -}}
+{{- $parts = $parts | append .Params.bib.address -}}
+{{- end -}}
+
+{{- printf "%s" (delimit $parts ", ") -}}

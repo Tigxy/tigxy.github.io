@@ -1,19 +1,25 @@
 <div class="publication-citation">
-  <strong>Citation</strong><br>
-  {{ delimit .Params.authors ", " }}<br>
-  {{ .Params.title }}<br>
+  {{- partial "render-authors.html" .Params.authors -}}.
+  {{- printf " %d." .Params.year -}}
+  <span>{{- printf " %s." .Params.title -}}</span>
+  {{- partial "render-conference.html" . -}}.
 
-  {{- if eq .Params.bibentry "inproceedings" -}}
-    {{ .Params.bib.booktitle }}
-    {{ with .Params.bibs }}, {{ . }}{{ end }}
-    {{ with .Params.bib.doi }}, doi:{{ . }}{{ end }},
-    {{ .Params.year }}.
-  {{- else if eq .Params.bibentry "article" -}}
-    {{ .Params.bib.booktitle }}
-    {{ with .Params.bibs }}, {{ . }}{{ end }}
-    {{ with .Params.bib.doi }}, doi:{{ . }}{{ end }},
-    {{ .Params.year }}.
-  {{- else -}}
-    {{ .Params.year }}.
-  {{- end }}
+  {{- $publishingParts := slice -}}
+  {{- $publisher := partial "render-publisher.html" . -}}
+  {{- $publishingParts = $publishingParts | append $publisher -}}
+
+  {{- with .Params.bib.pages -}}
+  {{- $publishingParts = $publishingParts | append . -}}
+  {{- end -}}
+
+  {{- $s := delimit $publishingParts ", " -}}
+  {{- if ge (len $s) 1 -}}
+    {{- printf " %s." $s -}}
+  {{- end -}}
+
+  {{- if .Params.bib.doi -}}
+    {{- if .Params.bib.url -}}
+      {{- printf " %s" .Params.bib.url -}} 
+    {{- end -}}
+  {{- end -}}
 </div>

@@ -1,31 +1,51 @@
 {{ define "main" }}
-<section class="publications">
-  <h1>{{ .Title }}</h1>
-
-  {{ $grouped := .Pages.GroupByParam "year" }}
-  {{ range sort $grouped "Key" "desc" }}
+<article class="post">
+  <header>
+    <h1>{{ .Title }}</h1>
+  </header>
+  
+  <section class="publications-section">
+    {{ $grouped := .Pages.GroupByParam "year" }}
+    {{ range sort $grouped "Key" "desc" }}
     <div class="publication-group">
-      <h2 class="publication-year">{{ .Key }}</h2>
-      {{ range .Pages.ByParam "title" }}
-        <div class="publication-entry">
+      <h2 class="publication-year-title">{{ .Key }}</h2>
+      {{ range (.Pages.ByParam "month").Reverse  }}
+      <div class="publication-entry">
+        {{ if .Params.image }}
+          <div class="publication-image-container">
+             {{ if .Params.image }}
+              <!-- file path to use for loading the image -->
+              {{ $fileName := (.Params.image ) | relURL }}
+              <!-- file path for file on disk (to check for issues) -->
+              {{ $serverFilePath := (urls.JoinPath "static" $fileName) | relURL }}
+
+              {{- if not (fileExists $serverFilePath) -}}
+                {{- warnf "Image does not exist: %s (in %s)" $fileName . -}}
+              {{- else -}}
+                <a href="{{ .RelPermalink }}">
+                  <img src="{{ $fileName }}" alt="[image: {{ $.Title }}]" class="publication-image-preview">
+
+                </a>
+              {{- end -}}
+            {{ end }}
+          </div>
+        {{ end }}
+        <div class="publication-metadata">
           <a class="publication-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
           <div class="publication-meta">
-            {{ partial "render-authors.html" .Params.authors }}
-            <br/>
-            {{ with .Params.journal_short }} {{ . }} {{ end }}
+            <div class="authors">
+              {{ partial "render-authors.html" .Params.authors }}
+            </div>
+            <div class="conference">
+              {{ partial "render-conference.html" . }}
+            </div>
           </div>
-          {{ with .Params.abstract }}
-          <div class="abstract-toggle">
-            <span class="abstract-preview">{{ . | truncate 280 }}</span>
-            <span class="abstract-full hidden">{{ . }}</span>
-            <button class="abstract-toggle-btn" data-more="[{{ i18n "show_more" }}]" data-less="[{{ i18n "show_less" }}]">
-              [{{ i18n "show_more" }}]
-            </button>
-          </div>
-          {{ end }}
         </div>
+      </div>
       {{ end }}
     </div>
-  {{ end }}
-</section>
+    {{ end }}
+  </section>
+</article>
 {{ end }}
+  
