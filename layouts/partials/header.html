@@ -39,6 +39,9 @@
 </script>
 {{- end }}
 
+{{ $script := resources.Get "js/custom.js" | minify | fingerprint }}
+<script src="{{ $script.RelPermalink }}" defer></script>
+
 <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -129,6 +132,12 @@
                 {{- end }}
             </div>
         </div>
+
+        <button id="menu-toggle" aria-label="Toggle menu">
+        ☰
+        </button>
+
+        <nav id="nav-menu">
         {{- $currentPage := . }}
         <ul id="menu">
             {{- range site.Menus.main }}
@@ -137,7 +146,7 @@
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
             <li>
                 <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }} class="menu_item_a">
+                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
                     <span {{- if eq $menu_item_url $page_url }} class="active" {{ else }} class="inactive" {{- end }}>
                         {{- .Pre }}
                         {{- .Name -}}
@@ -155,5 +164,6 @@
             </li>
             {{- end }}
         </ul>
+        </nav>
     </nav>
 </header>
