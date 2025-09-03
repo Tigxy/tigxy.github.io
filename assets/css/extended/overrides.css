@@ -1,0 +1,5 @@
+/* changes the size of the social icons on the homepage */
+.social-icons a svg {
+    height: 48px; /* from 26 */
+    width: 48px; /* from 26 */
+}

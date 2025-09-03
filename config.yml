@@ -61,6 +61,7 @@ params:
       - css/logos.css
       - css/timeline.css
       - css/publication.css
+      - css/overrides.css
 
   label:
     text: "Christian Ganhör"
@@ -95,14 +96,22 @@ params:
 
   socialIcons:
     # find more social icons here: https://github.com/adityatelange/hugo-PaperMod/wiki/Icons
+
     - name: github
-      url: "https://github.com/tigxy"
+      url: https://github.com/tigxy
+      title: GitHub
 
     - name: linkedin
-      url: "https://www.linkedin.com/in/christian-ganhoer"
+      url: https://www.linkedin.com/in/christian-ganhoer
+      title: LinkedIn
 
     - name: googlescholar
-      url: "https://scholar.google.com/citations?user=kP4hSv8AAAAJ&hl=de"
+      url: https://scholar.google.com/citations?user=kP4hSv8AAAAJ&hl=de
+      title: Google Scholar
+
+    - name: orcid
+      url: https://orcid.org/0000-0003-1850-2626
+      title: ORCID
 
   cover:
     hidden: true # hide everywhere but not in structured data
