@@ -16,8 +16,14 @@
   {{- warnf "No author data found for author '%s'" $authorKey -}}
   {{- end -}}
   {{- $name := cond $a (default $authorKey $a.name) $authorKey -}}
-  {{- $url := cond $a $a.url "" -}}
   {{- $isMe := cond $a $a.me false -}}
+
+  {{- $url := "" -}}
+  {{- if $isMe -}}
+  {{- $url = absLangURL "" -}}
+  {{- else -}}
+  {{- $url = cond $a $a.url "" -}}
+  {{- end -}}
 
   {{- $classes := slice "author-name" -}}
   {{- if $isMe }}{{ $classes = $classes | append "author-me" }}{{ end }}
