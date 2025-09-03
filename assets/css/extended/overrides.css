@@ -3,3 +3,16 @@
     height: 48px; /* from 26 */
     width: 48px; /* from 26 */
 }
+
+.social-icons a:hover {
+    animation: wiggle 0.5s 1 ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-6deg);
+    }
+    50% {
+        transform: rotate(6deg);
+    }
+}
