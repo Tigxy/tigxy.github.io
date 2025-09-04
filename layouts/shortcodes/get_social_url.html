@@ -1,0 +1,6 @@
+{{ $socialName := .Get 0 }}
+{{ range .Site.Params.socialIcons }}
+{{ if eq .name $socialName }}
+{{ .url }}
+{{ end }}
+{{ end }}

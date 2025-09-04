@@ -1,68 +1,24 @@
-/* for animating the title page writing */
-.typewriter {
-    display: inline-block;
-    font-family: monospace;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid currentColor;
-    animation: typing 4s steps(35, end), blink-caret 0.75s step-end infinite;
-    font-size: 1.75rem;
-    max-width: 100%;
-    color: var(--tw-prose-body);
-    /* adjust for theme if needed */
-}
-
-@keyframes typing {
-    from {
-        width: 0
-    }
-
-    to {
-        width: 100%
-    }
-}
-
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent
-    }
-
-    50% {
-        border-color: currentColor
-    }
-}
-
-.headline-container {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in 1.25s forwards;
-    /* after typing is done */
-}
-
-.subheadline-container {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in 3.25s forwards;
-    /* after typing is done */
-    font-weight: 300;
-}
-
-.profile_inner {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in 0.0s forwards;
-}
-
 .profile_inner img {
     transition: transform 0.3s ease;
 }
 
 .profile_inner img:hover {
-    /* Slight zoom on hover */
     transform: scale(1.2);
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.contact {
+    font-size: medium;
+}
+
+.contact a {
+  text-decoration: underline;
+}
+
+.about-me p {
+  margin-bottom: 1rem;
+}
+
+.about-me a {
+  text-decoration: underline;
+  color: var(--general-link);
 }

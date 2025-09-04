@@ -10,10 +10,12 @@
     --link: #6c5ce7;
     --link-hover: #5743e8;
     --link-font: #ffffff;
+    --general-link: #5743e8;
 }
 
 .dark {
     --work-header: #a29bfe;
     --education-header: #a29bfe;
     --publication-color: #a29bfe;
+    --general-link: #a29bfe;
 }

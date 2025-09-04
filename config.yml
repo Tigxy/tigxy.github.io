@@ -74,11 +74,7 @@ params:
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
-    #title: '<span class="typewriter">Hi there, welcome to my webpage!</span>'
-    title: |
-      <div class="headline-container">Hi there, welcome to my webpage!</div>
-      <div class="subheadline-container"><p>Here you can find more about me.</p></div>
-    # subtitle: "Here you can find out all about my background, projects and professional life."
+
     imageUrl: "profile.png"
     imageWidth: 180
     imageHeight: 180
