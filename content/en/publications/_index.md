@@ -1,4 +1,4 @@
 ---
-title: "Publications"
+title: "My publications"
 layout: "publications"
 ---
