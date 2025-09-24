@@ -33,7 +33,7 @@ bib:
   location: 
 
 links:
-  preprint: 
+  preprint: https://arxiv.org/abs/2509.18807
   publisher: 
   youtube: 
   pdf: /assets/pdfs/2025_TORS_SiBraR.pdf

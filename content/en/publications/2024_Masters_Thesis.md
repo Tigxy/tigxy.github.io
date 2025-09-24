@@ -17,7 +17,7 @@ year: 2024
 month: 12
 
 publisherurl: 
-bibentry: misc
+bibentry: mastersthesis
 bib:
   journal: Master's Thesis, Johannes Kepler University Linz
   editor: 
