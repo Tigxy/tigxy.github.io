@@ -10,6 +10,7 @@ advisors :
 
 shortname: master-thesis
 image: assets/images/papers/2024_12_thesis.png
+image_preview: assets/images/paper-previews/2024_12_thesis.png
 
 authors:
 - ganhoer

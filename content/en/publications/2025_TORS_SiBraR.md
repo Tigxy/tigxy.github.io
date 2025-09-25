@@ -5,6 +5,7 @@ abstract: "Traditional recommender systems rely on collaborative filtering, usin
 
 shortname: tors-sibrar
 image: assets/images/papers/2025_TORS_SiBraR.png
+image_preview: assets/images/paper-previews/2025_TORS_SiBraR.png
 authors:
 - ganhoer
 - moscati

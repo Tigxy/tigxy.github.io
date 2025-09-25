@@ -5,6 +5,7 @@ abstract: "In widely used neural network-based collaborative filtering models, u
 
 shortname: advx-multvae
 image: assets/images/papers/2024_07_BIAS-SIGIR_Escobedo_advxmultvae.png
+image_preview: assets/images/paper-previews/2024_07_BIAS-SIGIR_Escobedo_advxmultvae.png
 authors:
 - escobedo-ticona
 - ganhoer

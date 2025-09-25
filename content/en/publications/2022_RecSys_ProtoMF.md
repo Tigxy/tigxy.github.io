@@ -5,6 +5,7 @@ abstract: "Recent studies show the benefits of reformulating common machine lear
 
 shortname: ProtoMF
 image: assets/images/papers/2022_recsys_protomf.png
+image_preview: assets/images/paper-previews/2022_recsys_protomf.png
 
 authors:
 - melchiorre

@@ -15,7 +15,8 @@
           <div class="publication-image-container">
              {{ if .Params.image }}
               <!-- file path to use for loading the image -->
-              {{ $fileName := (.Params.image ) | relURL }}
+              {{ $imageParam := default (.Params.image) (.Params.image_preview) }}
+              {{ $fileName := ($imageParam) | relURL }}
               <!-- file path for file on disk (to check for issues) -->
               {{ $serverFilePath := (urls.JoinPath "static" $fileName) | relURL }}
 

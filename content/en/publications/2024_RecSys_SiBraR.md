@@ -5,6 +5,7 @@ abstract: "Most recommender systems adopt collaborative filtering (CF) and provi
 
 shortname: sibrar
 image: assets/images/papers/2024_SiBraR.png
+image_preview: assets/images/paper-previews/2024_SiBraR.png
 authors:
 - name: ganhoer
   suffix: "*"

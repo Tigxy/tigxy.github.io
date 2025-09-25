@@ -6,6 +6,7 @@ abstract: "We introduce Emotion-aware Music Tower Blocks (EmoMTB), an audiovisua
 
 shortname: EMOMTB
 image: assets/images/papers/2022_icmr_emomtb.png
+image_preview: assets/images/paper-previews/2022_icmr_emomtb.png
 
 authors:
 - melchiorre

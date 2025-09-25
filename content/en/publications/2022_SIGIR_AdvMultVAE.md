@@ -5,6 +5,7 @@ abstract: "Collaborative filtering algorithms capture underlying consumption pat
 
 shortname: UnlearningAdversarial
 image: assets/images/papers/2022_sigir_unlearningadversarial.png
+image_preview: assets/images/paper-previews/2022_sigir_unlearningadversarial.png
 
 authors:
 - ganhoer
