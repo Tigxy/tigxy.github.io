@@ -25,8 +25,8 @@ bib:
   editor: 
   publisher: Association for Computing Machinery
   address: New York, NY, USA
-  url: 
-  doi: 
+  url: https://doi.org/10.1145/3769430
+  doi: 10.1145/3769430
   volume: 
   number: 
   pages: 
@@ -35,9 +35,9 @@ bib:
 
 links:
   preprint: https://arxiv.org/abs/2509.18807
-  publisher: 
+  publisher: https://dl.acm.org/doi/10.1145/3769430
   youtube: 
-  pdf: /assets/pdfs/2025_TORS_SiBraR.pdf
+  pdf:
   blog: 
   code: https://github.com/hcai-mms/single-branch-networks
   external-webpage: 
