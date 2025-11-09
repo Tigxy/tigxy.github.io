@@ -1,7 +1,13 @@
 <!-- see https://gohugo.io/functions/time/format/ -->
-{{ time.Format "January 2006" (time .Params.start) }} - 
-{{ if .Params.end }}
-    {{ time.Format "January 2006" (time .Params.end) }}
-{{ else }}
-    Present
-{{ end }}
+{{- $parts := slice -}}
+
+{{- $parts = $parts | append (time.Format "January 2006" (time .Start)) -}}
+{{- $parts = $parts | append "-" -}}
+
+{{- if .End -}}
+    {{- $parts = $parts | append (time.Format "January 2006" (time .End)) -}}
+{{- else -}}
+    {{ $parts = $parts | append (i18n "now") -}}
+{{- end -}}
+
+{{- return delimit $parts " " -}}

@@ -11,7 +11,6 @@
   {{ $partTimeDuration := partial "computations/total-duration.html" (dict "Pages" $partTimePages "AsLongText" false) }}
   {{ $fullTimeDuration := partial "computations/total-duration.html" (dict "Pages" $fullTimePages "AsLongText" false) }}
 
-
   {{- $parts := slice -}}
   {{- if ne $fullTimeDuration "" -}}
   {{- $parts = $parts | append (printf "%s: %s" (i18n "full_time") $fullTimeDuration ) -}}

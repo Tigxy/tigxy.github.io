@@ -1,51 +1,8 @@
-{{ $start := time .Params.start }}
-{{ $end := time .Params.end }}
-{{ if not $end }}
-{{ $end := time.Now }}
-{{ end }}
+{{- $timeSpanStr := partial "formatting/format-timespan.html" (dict "Start" .Start "End" .End) -}}
 
-{{ $startYear := float ($start.Format "2006") }}
-{{ $startMonth := float ($start.Format "01")}}
-{{ $endYear := float ($end.Format "2006") }}
-{{ $endMonth := float ($end.Format "01") }}
-
-{{ $totalMonths := sub (add (mul $endYear 12) $endMonth) (add (mul $startYear 12) $startMonth) }}
-{{ $totalMonths := int ( add $totalMonths 1) }}                
-{{ $years := div $totalMonths 12 }}
-{{ $months := mod $totalMonths 12 }}
-
-<!-- see https://gohugo.io/functions/time/format/ -->
-{{ time.Format "January 2006" $start }} - 
-{{ if .Params.end }}
-    {{ time.Format "January 2006" $end }}
-{{ else }}
-    Present
-{{ end }}
-
-{{ $durationStr := "" }}                
-<!-- show year if greater zero -->
-{{ if gt $years 0 }}
-    {{ $durationStr = print $durationStr $years " year" }}
-    <!-- plural version -->
-    {{ if ne $years 1 }}
-        {{ $durationStr = print $durationStr "s" }}
-    {{ end }}
-{{ end }}
-
-<!-- comma ',' between year and month -->
-{{ if and (gt $years 0) (gt $months 0)  }}
-    {{ $durationStr = print $durationStr ", " }}
-{{ end }}
-
-<!-- show month if greater zero -->
-{{ if gt $months 0 }}
-    {{ $durationStr = print $durationStr $months " month" }}
-    <!-- plural version -->
-    {{ if ne $months 1 }}
-        {{ $durationStr = print $durationStr "s" }}
-    {{ end }}
-{{ end }}
+{{- $duration := partial "computations/page-duration" (dict "Days" $duration) -}}
+{{- $durationStr := partial "formatting/format-duration.html" (dict "Days" $duration) -}}
 
 <!-- wrap in brackets -->
-{{ $durationStr = print "(" $durationStr ")" }}
+{{- $durationStr = print $timeSpanStr " (" $durationStr ")" -}}
 {{ $durationStr }}

@@ -1,7 +1,7 @@
-{{ $totalDays := 0 }}
+{{- $totalDays := 0 -}}
 
-{{ range (.Pages.ByParam "end").Reverse }}
-    {{ $totalDays = add $totalDays (partial "computations/page-duration" .) }}
-{{ end }}
+{{- range (.Pages.ByParam "end").Reverse -}}
+    {{ $totalDays = add $totalDays (partial "computations/page-duration" (dict "Start" .Params.start "End" .Params.end )) -}}
+{{- end -}}
 
 {{- return (partial "formatting/format-duration.html" (dict "Days" $totalDays "AsLongText" .AsLongText)) -}}

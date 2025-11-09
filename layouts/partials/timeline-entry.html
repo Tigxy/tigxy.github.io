@@ -1,3 +1,4 @@
+
 <div class="timeline-entry" id="{{ .File }}">
   <div class="timeline-logo-container">
     {{ if not (eq .lastLogo .Params.logo) }}
@@ -11,10 +12,14 @@
       <h2 class="title">{{ .Params.title }}</h2>
       <p class="institution">{{ .Params.institution }}</p>
       <p class="duration">
-        {{- $timeSpanStr := partial "formatting/format-timespan" . -}}
-        {{- $duration := partial "computations/page-duration" . -}}
+        {{- $timeSpanStr := partial "formatting/format-timespan" (dict "Start" .Params.start "End" .Params.end) -}}
+        {{- $duration := partial "computations/page-duration" (dict "Start" .Params.start "End" .Params.end) -}}
         {{- $durationStr := partial "formatting/format-duration.html" (dict "Days" $duration) -}}
-        {{- $timeSpanStr -}}({{- $durationStr -}}){{- with .Params.employment_type -}}, {{ i18n . }} {{- end -}}
+        {{- $durationStrBrackets := "" -}}
+        {{- if $durationStr -}}
+          {{- $durationStrBrackets = print " (" $durationStr ")"}}
+        {{- end -}}
+        {{- $timeSpanStr -}}{{- $durationStrBrackets -}}{{- with .Params.employment_type -}}, {{ i18n . }} {{- end -}}
       </p>
       <p class="location">{{ .Params.location }}</p>
     </div>
