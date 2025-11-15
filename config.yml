@@ -102,7 +102,7 @@ params:
       title: LinkedIn
 
     - name: googlescholar
-      url: https://scholar.google.com/citations?user=kP4hSv8AAAAJ&hl=de
+      url: https://scholar.google.com/citations?user=kP4hSv8AAAAJ&hl=en
       title: Google Scholar
 
     - name: orcid
